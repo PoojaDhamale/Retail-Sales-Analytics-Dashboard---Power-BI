@@ -1,0 +1,51 @@
+store_id,store_city,store_type
+1,Mumbai,High Street
+2,Delhi,High Street
+3,Bangalore,Online
+4,Hyderabad,
+5,Delhi,Online
+6,Bangalore,High Street
+7,Delhi,
+8,Bangalore,Online
+9,Hyderabad,
+10,Pune,Online
+11,Hyderabad,Mall
+12,Mumbai,Mall
+13,Mumbai,
+14,Delhi,Mall
+15,Mumbai,High Street
+16,Pune,High Street
+17,Bangalore,Mall
+18,Delhi,
+19,Delhi,Online
+20,Hyderabad,Mall
+21,Bangalore,Online
+22,Bangalore,High Street
+23,Bangalore,High Street
+24,Pune,Online
+25,Pune,High Street
+26,Hyderabad,High Street
+27,Pune,High Street
+28,Mumbai,
+29,Delhi,Mall
+30,Delhi,
+31,Bangalore,High Street
+32,Delhi,High Street
+33,Hyderabad,Mall
+34,Hyderabad,
+35,Pune,
+36,Delhi,
+37,Hyderabad,Mall
+38,Mumbai,High Street
+39,Bangalore,
+40,Hyderabad,
+41,Bangalore,High Street
+42,Hyderabad,
+43,Bangalore,
+44,Hyderabad,High Street
+45,Pune,High Street
+46,Bangalore,Mall
+47,Pune,Online
+48,Pune,
+49,Hyderabad,
+50,Delhi,
