@@ -1,6 +1,6 @@
 # 🛒 Retail Sales Performance, Customer Segmentation & Discount Optimization
 
-An end-to-end retail analytics project: raw transactional data is cleaned and modeled in SQL, then explored through an interactive Power BI dashboard covering revenue performance, RFM-based customer segmentation, and discount impact.
+An end-to-end retail analytics project: raw transactional data is cleaned, modeled, and analyzed in SQL — including RFM-based customer segmentation — with key findings explored further through an interactive Power BI dashboard covering revenue performance, customer insights, and discount impact.
 
 ---
 
