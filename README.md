@@ -41,11 +41,9 @@ Beyond basic aggregation, the analysis uses:
 
 Some analysis lives only in `SQL.sql` and isn't currently represented as a dashboard visual — noted here for transparency:
 
-- **RFM Customer Segmentation:** Every customer is scored into quartiles on Recency, Frequency, and Monetary value, then grouped into segments (Champions, High Value, At Risk/Churning, Medium Value) with revenue share per segment. This lives in the RFM CTE pipeline (Query 19) but has no corresponding chart in Power BI yet.
-- **Customer Lifetime Value (CLV):** Per-customer lifetime spend, calculated but not visualized.
-- **Month-over-Month Revenue Growth:** Calculated via `LAG()` (Query 21), available in SQL output only.
-
-A natural next step would be to add an RFM segment chart and a CLV distribution to the dashboard so these insights are explorable interactively, not just queryable.
+- **RFM Customer Segmentation:** Every customer is scored into quartiles on Recency, Frequency, and Monetary value, then grouped into segments (Champions, High Value, At Risk/Churning, Medium Value) with revenue share per segment..
+- **Customer Lifetime Value (CLV):** Per-customer lifetime spend.
+- **Month-over-Month Revenue Growth:** Calculated via `LAG()`.
 
 ---
 
