@@ -37,7 +37,7 @@ Beyond basic aggregation, the analysis uses:
 
 ---
 
-## SQL-Only Insights (Not Visualized on the Dashboard)
+## SQL-Only Insights 
 
 Some analysis lives only in `SQL.sql` and isn't currently represented as a dashboard visual — noted here for transparency:
 
