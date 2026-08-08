@@ -6,12 +6,12 @@ An end-to-end retail analytics project: raw transactional data is cleaned and mo
 
 ## Overview
 
-| | |
-|---|---|
+|             |                                                                                                                        |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------- |
 | **Problem** | Understand what drives revenue, which customers matter most, and whether discounting is helping or hurting net revenue |
-| **Data** | 5,000 customers · 1,000 products · 50 stores · 50,000 raw transactions (India-based retail) |
-| **Tools** | SQL (PostgreSQL) for cleaning, feature creation, and analysis · Power BI for the dashboard |
-| **Output** | A multi-page interactive dashboard covering sales performance, customer segmentation, and discount strategy |
+| **Data**    | 5,000 customers · 1,000 products · 50 stores · 50,000 raw transactions (India-based retail)                            |
+| **Tools**   | SQL (PostgreSQL) for cleaning, feature creation, and analysis · Power BI for the dashboard                             |
+| **Output**  | A multi-page interactive dashboard covering sales performance, customer segmentation, and discount strategy            |
 
 ---
 
@@ -28,6 +28,7 @@ Real data-quality issues were found and handled deliberately, not silently dropp
 ## SQL Analysis (`SQL.sql`)
 
 Beyond basic aggregation, the analysis uses:
+
 - **CTEs** to build a full RFM (Recency, Frequency, Monetary) segmentation pipeline in one readable query, rather than one long nested query
 - **`NTILE(4)`** to score every customer into quartiles on recency, frequency, and monetary value independently, then combine those scores into named segments (Champions, High Value, At Risk/Churning, Medium Value)
 - **`RANK()`** for product revenue ranking, and **`LAG()`** for month-over-month revenue growth
@@ -36,20 +37,36 @@ Beyond basic aggregation, the analysis uses:
 
 ---
 
+## SQL-Only Insights (Not Visualized on the Dashboard)
+
+Some analysis lives only in `SQL.sql` and isn't currently represented as a dashboard visual — noted here for transparency:
+
+- **RFM Customer Segmentation:** Every customer is scored into quartiles on Recency, Frequency, and Monetary value, then grouped into segments (Champions, High Value, At Risk/Churning, Medium Value) with revenue share per segment. This lives in the RFM CTE pipeline (Query 19) but has no corresponding chart in Power BI yet.
+- **Customer Lifetime Value (CLV):** Per-customer lifetime spend, calculated but not visualized.
+- **Month-over-Month Revenue Growth:** Calculated via `LAG()` (Query 21), available in SQL output only.
+
+A natural next step would be to add an RFM segment chart and a CLV distribution to the dashboard so these insights are explorable interactively, not just queryable.
+
+---
+
 ## Dashboard Highlights
 
 **Sales Overview**
+
 - ₹5.86bn total revenue, ₹5.13bn net revenue (after discounts) — a ~12% gap driven by discounting, quantified explicitly rather than left unexamined
 - Revenue is concentrated: no single product dominates, but a defined "Uncategorized" product/category grouping accounts for the largest single revenue share (~28%) — flagged as a data quality gap in the source `category` field rather than a real business category, and called out directly in the dashboard rather than hidden
 
 **Customer Insights**
+
 - 79% of customers (4K of 5K) are returning ("Old") customers by revenue share — repeat purchasing dominates over new-customer acquisition
 - Revenue is broadly distributed across the customer base: the top 10% of customers contribute only ~19% of revenue, meaning the business is not overly dependent on a small handful of accounts
 - Purchase-frequency segmentation shows repeat buyers generate the largest share of net revenue, ahead of loyal (high-frequency) and low-frequency buyers
+- **Geographic skew:** only 5 cities are geographically mapped, but they represent **71% of net revenue** (₹3.63bn). The remaining **29% (₹1.5bn)** comes from customers with no city recorded in the source data — a substantial share of revenue that currently cannot be mapped or analyzed geographically
 
 **Discount Impact**
+
 - Net revenue is highest in the 0–5% discount range and drops consistently as discount depth increases — direct evidence of diminishing returns from heavier discounting, rather than an assumption
-- Store-type revenue is split across High Street, Mall, and Online channels, with a portion of transactions falling into an "Unknown" store type — again surfaced as a data-quality gap rather than masked
+- Store-type revenue is split across High Street (32.6%), Mall (17.3%), and Online (15.9%) — but the single largest share, **34.1%, falls into "Unknown"** store type, exceeding every identified channel. This is surfaced as the dashboard's leading data-quality gap rather than smoothed over
 
 *(Dashboard screenshots are in this repo — see `Screenshot 2026-06-23 *.png`)*
 
@@ -60,6 +77,7 @@ Beyond basic aggregation, the analysis uses:
 - **Data quality gaps ("Uncategorized" products, "Unknown" store types) are reported openly in the dashboard's own insights**, not cleaned away artificially — an accurate picture of imperfect source data was prioritized over a cosmetically cleaner but less honest one
 - **Discount-null rows were imputed as 0%, a judgment call** — a different, equally defensible choice would be to exclude them entirely; this project's reasoning is documented above for transparency
 - **RFM segment thresholds (quartile-based) are a standard, but not the only, segmentation approach** — different quartile cutoffs or a five-tier model would shift specific customers between segments
+- **RFM segmentation and CLV exist in SQL but not yet in the dashboard** — see the "SQL-Only Insights" section above
 
 ---
 
