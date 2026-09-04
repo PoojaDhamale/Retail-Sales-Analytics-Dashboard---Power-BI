@@ -87,5 +87,5 @@ Some analysis lives only in `SQL.sql` and isn't currently represented as a dashb
 
 ## Author
 
-**Pooja Dhamale**
-**Skills:** SQL · Power BI · Data Visualization · Customer Segmentation
+**Pooja Dhamale** </br>
+Artificial Intelligence and Data Science
