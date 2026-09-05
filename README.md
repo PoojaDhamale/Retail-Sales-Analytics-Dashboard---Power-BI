@@ -66,8 +66,6 @@ Some analysis lives only in `SQL.sql` and isn't currently represented as a dashb
 - Net revenue is highest in the 0–5% discount range and drops consistently as discount depth increases — direct evidence of diminishing returns from heavier discounting, rather than an assumption
 - Store-type revenue is split across High Street (32.6%), Mall (17.3%), and Online (15.9%) — but the single largest share, **34.1%, falls into "Unknown"** store type, exceeding every identified channel. This is surfaced as the dashboard's leading data-quality gap rather than smoothed over
 
-*(Dashboard screenshots are in this repo — see `Screenshot 2026-06-23 *.png`)*
-
 ---
 
 ## Key Design Decisions & Honest Limitations
